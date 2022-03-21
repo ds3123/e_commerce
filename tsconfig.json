@@ -20,8 +20,13 @@
     "isolatedModules": true,
     "jsx": "preserve" ,
     "paths": {
+       "@components" : ["components"] ,
+       "@components/common/*" : ["components/common/*"] ,
+       "@common/*" : ["components/common/*"] ,
+       "@layout/*" : ["components/common/Layout/*"] ,
        "@components/*" : ["components/*"] ,
-       "@assets/*"     : ["assets/*"] ,
+       "@assets"     : ["assets"] ,
+       "@assets/*"     : ["assets/*"] 
     }
   },
   "include": [

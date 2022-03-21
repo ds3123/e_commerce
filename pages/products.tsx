@@ -1,19 +1,26 @@
 
+import ProductsLayout from "@layout/ProductsLayout" ;
+import Layout from "@layout/Layout" ;
 
-
-import ProductsLayout from "../components/common/Layout/ProductsLayout";
+import { ReactElement } from "react";
 import { PageTitle } from './products/index.style'
 
 
-
-
-
-const Products = ( ) => {
+const Products = () => {
   
-  return <PageTitle>目前位置 : 商品頁 </PageTitle>
+  return <PageTitle> 目前位置 : 商品頁 </PageTitle>
   
 } ;
 
 export default Products
        
-Products.Layout = ProductsLayout;
+// Products.Layout = ProductsLayout;
+
+
+Products.getLayout = function getLayout( page : ReactElement ){
+
+
+  return <Layout> 版面內容  </Layout>
+
+
+}
