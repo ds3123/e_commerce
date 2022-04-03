@@ -1,72 +1,92 @@
 
 
-import Layout from "@components/common/Layout/Layout" ;
 
-
-const Home = () => {
-  
-  return <div className="bg-gray-100 mx-auto sm:bg-green-500 md:bg-red-500 lg:bg-yellow-500 xl:bg-purple-500"> 
-
-             <h1 className="border-2 text-4xl font-bold text-center text-blue-500">
-                  目前位置 : 首頁 
-             </h1>
-
-             <div className="flex">
-
-                <div className="px-8 py-12 max-w-md mx-auto lg:hidden lg:w-1/2">
-
-                  <img className="mt-10 mb-10 rounded-lg" src="https://placeimg.com/640/480/any" /> 
-
-                </div>
-
-                <div className="hidden lg:block lg:w-1/2 lg:relative">
-
-                  <img className="absolute inset-0 h-full w-full rounded-lg object-cover object-center" src="https://placeimg.com/640/480/any" /> 
-
-                </div>
-
-            </div>  
-
-        
-             <div className="border-2 columns-4 p-10">
-
-                <h1 className="text-2xl text-gray-600 font-bold leading-loose"> 
-                  You can work anywher. <span className="text-indigo-400"> Take advantage of it </span>  
-                </h1> 
-                <h1 className="text-2xl text-gray-600 font-bold"> You can work anywher. Take advantage of it  </h1> 
-                <h1 className="text-2xl text-gray-600 font-bold"> You can work anywher. Take advantage of it  </h1> 
-                <h1 className="text-2xl text-gray-600 font-bold"> You can work anywher. Take advantage of it  </h1> 
-
-             </div>
-
-             <p  className="mt-10 text-xl" > 
-                Workcation helps you find work friendly rentals in beautiful locations. 
-                So you can enjoy nice weather even when you're not on vocation.
-             </p>
-
-             <div className="mt-4">
-               
-               <a href="#" className="inline-block bg-indigo-500 font-b text-white px-5 py-3 rounded-md shadow-lg"> 
-                   Book Your Escape 
-               </a>
-               
-             </div> 
+import {  Front_Common_Header ,
+          React_Responsive_Carousel , 
+          Left_Main_Pic ,
+          Banner_Right_Image ,
+          Scroll_Card ,
+          Small_Card
+       } from "@layout/index" ;
  
+import { I_Scroll_Card } from "@type/basic_Types" ;
+import { I_Small_Card } from "@type/basic_Types" ;
 
 
-         </div>
+type Props = {
 
+  small_Card_Data  : [ I_Small_Card ] ;
+  scroll_Card_Data : [ I_Scroll_Card ] ; 
+
+}
+
+
+
+
+const Home = ( { small_Card_Data , scroll_Card_Data } : Props ) => {
+
+
+
+  return <div className="mt-10 container mx-auto 
+                         border-2 sm:border-emerald-300 md:border-yellow-400 
+                         lg:border-orange-400 xl:border-red-400 2xl:border-blue-400" >
+
+            <Front_Common_Header />            
+
+            <React_Responsive_Carousel images={[]} />
+
+            <Banner_Right_Image img_Title    = "Medium is a place to write, red, and connect." 
+                                img_Subtitle = "It's easy and free to post your thinking on any topic and connect with millions of readers." 
+                                img_Url      = "https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" />   
+            
+          
+
+            <Small_Card section_Title="Explore Nearby" card_Data={ small_Card_Data  } />
+
+            <Scroll_Card section_Title="Live Anywhere" card_Data={ scroll_Card_Data } /> 
+
+
+
+            <Left_Main_Pic images={[]} />
+
+         </div>  
+            
+      
 } ;
 
 export default Home
        
+
 // Home.Layout = Layout 
+// Home.getLayout = function getLayout( page ){
+
+//   return <Layout> 
+    
+//            { page }  
+
+//          </Layout>
 
 
-Home.getLayout = function getLayout( page ){
+// }
 
 
-  return <Layout> { page }  </Layout>
+export async function getStaticProps(){
 
+  const small_Card_Data  = await fetch( "https://links.papareact.com/pyp" )
+                                 .then( res => res.json()  ) ;
+                  
+  const scroll_Card_Data = await fetch( "https://links.papareact.com/zp1" )
+                                 .then( res => res.json() ) ;      
+  
+ 
+  return {
+           props :{
+                    small_Card_Data , 
+                    scroll_Card_Data     
+                  }
+
+         }
 
 }
+
+

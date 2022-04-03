@@ -1,6 +1,6 @@
 
-import ProductsLayout from "@layout/ProductsLayout" ;
-import Layout from "@layout/Layout" ;
+import ProductsLayout from "@common/layout/ProductsLayout" ;
+import { Layout } from "@common/index" ;
 
 import { ReactElement } from "react";
 import { PageTitle } from './products/index.style'
@@ -20,7 +20,7 @@ export default Products
 Products.getLayout = function getLayout( page : ReactElement ){
 
 
-  return <Layout> 版面內容  </Layout>
+  return <Layout> { page }  </Layout>
 
 
 }

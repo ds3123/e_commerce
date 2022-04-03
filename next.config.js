@@ -1,3 +1,8 @@
 module.exports = {
-  reactStrictMode: true,
+
+  //  for <Image /> allowd Domains
+  images : {
+             domains:[ "links.papareact.com" ] , 
+            }
+
 }

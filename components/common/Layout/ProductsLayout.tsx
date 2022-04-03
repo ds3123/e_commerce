@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Layout from "./Layout";
+import { Layout  } from "@common/index";
 
 
 const ProductsLayout : FC = ({ children }) => {

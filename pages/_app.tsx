@@ -2,8 +2,18 @@ import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 
 import { AppProps } from "next/app";
-import { FC } from "react"
 import "@assets/main.css"
+
+// Font Awesome
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { library , config } from '@fortawesome/fontawesome-svg-core'
+import { fab  } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { } from '@fortawesome/free-regular-svg-icons'
+
+config.autoAddCss = false
+
+library.add( fab , fas )
 
 
 const Noop = ( { children } ) => <> { children } </> // 若無 Layout，僅顯示 children
@@ -38,10 +48,8 @@ type AppPropsWithLayout = AppProps & {
 
 function MyApp({ Component , pageProps } : AppPropsWithLayout ) {
 
-
   const getLayout = Component.getLayout || ( ( page ) => page )
   
-
   return getLayout( <Component { ...pageProps } />  )
 
 }

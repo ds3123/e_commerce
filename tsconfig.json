@@ -20,20 +20,21 @@
     "isolatedModules": true,
     "jsx": "preserve" ,
     "paths": {
-       "@components" : ["components"] ,
-       "@components/common/*" : ["components/common/*"] ,
-       "@common/*" : ["components/common/*"] ,
-       "@layout/*" : ["components/common/Layout/*"] ,
+       "@common/*"     : ["components/common/*"] ,
+       "@layout/*"     : ["components/common/layout/*"] ,
        "@components/*" : ["components/*"] ,
-       "@assets"     : ["assets"] ,
-       "@assets/*"     : ["assets/*"] 
+       "@assets/*"     : ["assets/*"] ,
+       "@type/*"       : ["utils/types/*"]  
     }
   },
   "include": [
     "next-env.d.ts",
+    "**/*.d.ts" ,
+    "***/**/*.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/_app.tsx"  ],
+    "**/*.tsx", 
+    "pages/_app.tsx"  
+  ],
   "exclude": [
     "node_modules"
   ]

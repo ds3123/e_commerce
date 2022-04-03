@@ -1,7 +1,7 @@
 
 
 import { ReactElement } from "react";
-import Order_Layout from "@layout/Order_Layout";
+import Order_Layout from "@components/common/layout/Order_Layout";
 import { PageTitle } from './products/index.style'
 
 
@@ -15,7 +15,6 @@ export default Orders
        
 
 // Orders.Layout = Layout;
-
 Orders.getLayout = function getLayout( page : ReactElement ){
 
 
