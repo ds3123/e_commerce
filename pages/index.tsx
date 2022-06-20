@@ -1,12 +1,13 @@
-
-
-
-import {  Front_Common_Header ,
-          React_Responsive_Carousel , 
+import {  React_Responsive_Carousel , 
           Left_Main_Pic ,
           Banner_Right_Image ,
+          Banner_Center_Info ,
           Scroll_Card ,
-          Small_Card
+          Small_Card ,
+          Large_Card , 
+          Bottom_Info_Card  ,
+          Front_Search_Header ,
+          Front_Common_Footer
        } from "@layout/index" ;
  
 import { I_Scroll_Card } from "@type/basic_Types" ;
@@ -21,33 +22,42 @@ type Props = {
 }
 
 
-
-
 const Home = ( { small_Card_Data , scroll_Card_Data } : Props ) => {
 
+  return <div>
+
+            <Front_Search_Header placeholder="請輸入搜尋關鍵字"/>  
+            <React_Responsive_Carousel images = { [] } />
+         
+            <main className="max-w-7xl mx-auto px-8 sm:px-16">
+
+                <Small_Card section_Title  = "本週特惠" card_Data={ small_Card_Data  } />
+
+                <Bottom_Info_Card card_Data = { scroll_Card_Data } />
+                <Bottom_Info_Card card_Data = { scroll_Card_Data } />
+                <Bottom_Info_Card card_Data = { scroll_Card_Data } />
+
+                <Scroll_Card section_Title = "精選商品" card_Data={ scroll_Card_Data } /> 
+
+                <Large_Card img_Title    = "The Greatest Outdoors" 
+                            img_Subtitle = "Whishlists curated by airbnb" 
+                            img_Url      = "https://links.papareact.com/4cj"
+                            button_Text  = "Get Inspired"  />   
+
+                <Left_Main_Pic images    = { [] } />
+
+            </main>
 
 
-  return <div className="mt-10 container mx-auto 
-                         border-2 sm:border-emerald-300 md:border-yellow-400 
-                         lg:border-orange-400 xl:border-red-400 2xl:border-blue-400" >
-
-            <Front_Common_Header />            
-
-            <React_Responsive_Carousel images={[]} />
+            <Banner_Center_Info img_Url     = "https://links.papareact.com/0fm"
+                                img_Title   = "本週新增多樣商品"
+                                button_Text = "查看最新活動" />
 
             <Banner_Right_Image img_Title    = "Medium is a place to write, red, and connect." 
                                 img_Subtitle = "It's easy and free to post your thinking on any topic and connect with millions of readers." 
                                 img_Url      = "https://accountabilitylab.org/wp-content/uploads/2020/03/Medium-logo.png" />   
             
-          
-
-            <Small_Card section_Title="Explore Nearby" card_Data={ small_Card_Data  } />
-
-            <Scroll_Card section_Title="Live Anywhere" card_Data={ scroll_Card_Data } /> 
-
-
-
-            <Left_Main_Pic images={[]} />
+            <Front_Common_Footer />
 
          </div>  
             
@@ -73,7 +83,7 @@ export default Home
 export async function getStaticProps(){
 
   const small_Card_Data  = await fetch( "https://links.papareact.com/pyp" )
-                                 .then( res => res.json()  ) ;
+                                 .then( res => res.json() ) ;
                   
   const scroll_Card_Data = await fetch( "https://links.papareact.com/zp1" )
                                  .then( res => res.json() ) ;      

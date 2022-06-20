@@ -2,6 +2,9 @@
 import { I_Small_Card } from "@type/basic_Types" ;
 import Image from "next/image" ;
 
+
+
+
 /*
 
   @ 小圖片( 左側圖片，右側文字 )
